@@ -23,7 +23,7 @@ import reducer from './reducers'
 import sagas from './sagas';
 import NavigatorService from './lib/NavigatorService'
 
-
+//store setup
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleware = createLogger({predicate:(getstate,actions) => __DEV__});
 function configureStore(initialState){
@@ -35,11 +35,11 @@ function configureStore(initialState){
     return createStore(reducer,initialState,enhancer);
 }
 const store = configureStore({});
-
+// if persistance needed, uncomment below line
 // persistStore(store, {storage: AsyncStorage,})
-
 sagaMiddleware.run(sagas);
 const action = type => store.dispatch({type})
+
 export default class EntryPoint extends Component {
   render() {
     return (

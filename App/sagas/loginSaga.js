@@ -1,8 +1,7 @@
 import { delay } from 'redux-saga'
 import { put, takeEvery,call } from 'redux-saga/effects'
 import * as actionTypes from '../actions/ActionTypes'
-import Api from '../api'
-import {Alert} from 'react-native'
+import Api from '../utils/Api'
 import NavigatorService from '../lib/NavigatorService'
 
 const sampleLoginResponse = {

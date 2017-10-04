@@ -6,8 +6,10 @@ import LoginScreen from './LoginScreen'
 import PhonesList from './PhonesList'
 import Details from './DetailsPage'
 
-export default BasicApp = StackNavigator({
+//Top level navigator
+
+export default AppNavigator = StackNavigator({
   Login: {screen: LoginScreen,navigationOptions: { header: null } },
   PhonesList: {screen: PhonesList,},
-  Details: {screen: Details,}
+  Details: {screen: Details,},
 });

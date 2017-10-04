@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga'
 import { put, takeEvery,call,select } from 'redux-saga/effects'
 import * as actionTypes from '../actions/ActionTypes'
-import Api from '../api'
+import Api from '../utils/Api'
 import {Alert} from 'react-native'
 
 //selector Function to get app/redux state
