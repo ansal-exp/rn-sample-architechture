@@ -12,7 +12,6 @@ View
 import styles from './styles'
 
 export default class ListItem extends Component {
-
   render() {
     return (
     <TouchableOpacity

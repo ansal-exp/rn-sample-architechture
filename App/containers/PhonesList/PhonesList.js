@@ -42,11 +42,26 @@ export default class PhonesList extends React.Component {
         data={this.props.phones}
         onEndReachedThreshold={0.5}
         keyExtractor={this._keyExtractor}
+        ListFooterComponent={this.renderFooter}
         renderItem={({item, separators}) => <ListItem onPress={this.onItemPress} item={item}/>}
       />
     )
   }
-
+ // for displaying an activity indicator at the bottom of the list while loading
+  renderFooter = () => {
+    if (!this.props.isPhonesLoading) return null;
+    return (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: "#CED0CE"
+        }}
+      >
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  }
   render() {
     const { navigate } = this.props.navigation;
     return (
