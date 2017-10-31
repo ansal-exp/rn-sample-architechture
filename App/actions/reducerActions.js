@@ -1,15 +1,15 @@
 // reducer actions
-import * as types from './ActionTypes'
+import * as types from './ActionTypes';
 
-export function requestLogin(username, password){
-  return{
+export function requestLogin(username, password) {
+  return {
     type: types.LOGIN_REQUEST,
-    username:username,
-    password:password,
-  }
+    username,
+    password,
+  };
 }
-export function requestPhones(){
-  return{
-    type: types.REQUEST_PHONES_LIST, 
-  }
+export function requestPhones() {
+  return {
+    type: types.REQUEST_PHONES_LIST,
+  };
 }

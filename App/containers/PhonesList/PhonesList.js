@@ -1,53 +1,40 @@
-//container for loading browse list
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  Button,
-  FlatList,
-  TouchableHighlight,
-  ActivityIndicator,
-  TouchableOpacity
-} from 'react-native';
-import ListItem from '../../components/ListItem'
+// container for loading browse list
+import React, { Component, PropTypes } from 'react';
+import { View, FlatList, ActivityIndicator } from 'react-native';
+import ListItem from '../../components/ListItem';
 
-export default class PhonesList extends React.Component {
+export default class PhonesList extends Component {
   // Customizing navigation bar
-  static navigationOptions = ({ navigation, screenProps }) => ({
-       title: "Browse Phones",       
-       headerTintColor: "#FFFFFF",
-       headerStyle: {
-         backgroundColor:"#FF3366"
-       }
-   });
-  componentWillMount(){
-    if(!this.props.isPhonesLoading){
-      this.props.actions.requestPhones()
+  static navigationOptions = () => ({
+    title: 'Browse Phones',
+    headerTintColor: '#FFFFFF',
+    headerStyle: {
+      backgroundColor: '#FF3366',
+    },
+  });
+  componentWillMount() {
+    if (!this.props.isPhonesLoading) {
+      this.props.actions.requestPhones();
     }
   }
-  // used as key generator for flatlist items
-  _keyExtractor = (item, index) => index;
 
-  onItemPress=(item)=>{
-     this.props.navigation.navigate('Details',{item:item});     
-  }
+  onItemPress = (item) => {
+    this.props.navigation.navigate('Details', { item });
+  };
+  // used as key generator for flatlist items
+  keyExtractor = (item, index) => index;
 
   // returns a flatlist component
-  renderList=()=>{
-    return (
-      <FlatList 
-        data={this.props.phones}
-        onEndReachedThreshold={0.5}
-        keyExtractor={this._keyExtractor}
-        ListFooterComponent={this.renderFooter}
-        renderItem={({item, separators}) => <ListItem onPress={this.onItemPress} item={item}/>}
-      />
-    )
-  }
- // for displaying an activity indicator at the bottom of the list while loading
+  renderList = () => (
+    <FlatList
+      data={this.props.phones}
+      onEndReachedThreshold={0.5}
+      keyExtractor={this.keyExtractor}
+      ListFooterComponent={this.renderFooter}
+      renderItem={({ item }) => <ListItem onPress={this.onItemPress} item={item} />}
+    />
+  );
+  // for displaying an activity indicator at the bottom of the list while loading
   renderFooter = () => {
     if (!this.props.isPhonesLoading) return null;
     return (
@@ -55,22 +42,20 @@ export default class PhonesList extends React.Component {
         style={{
           paddingVertical: 20,
           borderTopWidth: 1,
-          borderColor: "#CED0CE"
+          borderColor: '#CED0CE',
         }}
       >
         <ActivityIndicator animating size="large" />
       </View>
     );
-  }
+  };
   render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={{flex:1,backgroundColor:'white'}}>      
-        {this.renderList()} 
-      </View>
-    );
+    return <View style={{ flex: 1, backgroundColor: 'white' }}>{this.renderList()}</View>;
   }
 }
-
-
-
+PhonesList.propTypes = {
+  actions: PropTypes.arrayOf(PropTypes.func).isRequired,
+  phones: PropTypes.arrayOf(PropTypes.any).isRequired,
+  navigation: PropTypes.objectOf(PropTypes.any).isRequired,
+  isPhonesLoading: PropTypes.bool.isRequired,
+};
