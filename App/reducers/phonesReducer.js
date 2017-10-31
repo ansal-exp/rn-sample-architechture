@@ -1,4 +1,3 @@
-import createReducer from '../lib/createReducer';
 import * as actionTypes from '../actions/ActionTypes';
 
 const initialState = {
@@ -7,16 +6,18 @@ const initialState = {
   isEndReached: false,
 };
 
-export const phonesReducer = createReducer(initialState, {
-  [actionTypes.FETCH_STARTED](state) {
-    const newState = { ...state };
-    newState.isLoading = true;
-    return newState;
-  },
-  [actionTypes.FETCH_STOPPED](state, action) {
-    const newState = { ...state };
-    newState.phones = [...action.response];
-    newState.isLoading = false;
-    return newState;
-  },
-});
+export const loginReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.FETCH_STARTED:{
+      const newState = { ...state };
+      newState.isLoading = true;
+      return newState;
+    },
+  case actionTypes.FETCH_STOPPED: {
+      const newState = { ...state };
+      newState.phones = [...action.response];
+      newState.isLoading = false;
+      return newState;
+    },
+  }
+}
