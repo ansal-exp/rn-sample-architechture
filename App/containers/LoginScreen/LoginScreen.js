@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from "react";
 import {
   Text,
   View,
@@ -6,19 +6,15 @@ import {
   TextInput,
   TouchableOpacity,
   Modal,
-  ActivityIndicator,
-} from 'react-native';
-import styles from './styles';
-
-const background = require('../../images/login1_bg.png');
-const mark = require('../../images/login1_mark.png');
-const lockIcon = require('../../images/login1_lock.png');
-const personIcon = require('../../images/login1_person.png');
+  ActivityIndicator
+} from "react-native";
+import styles from "./styles";
+import images from "../../images";
 
 export default class LoginScreen extends Component {
   state = {
-    loginText: 'something@somedomain.co',
-    passwordText: 'somePassword',
+    loginText: "something@somedomain.co",
+    passwordText: "somePassword"
   };
   renderLoadingModal = () => (
     <Modal
@@ -36,14 +32,26 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={background} style={styles.background} resizeMode="cover">
+        <Image
+          source={images.background}
+          style={styles.background}
+          resizeMode="cover"
+        >
           <View style={styles.markWrap}>
-            <Image source={mark} style={styles.mark} resizeMode="contain" />
+            <Image
+              source={images.mark}
+              style={styles.mark}
+              resizeMode="contain"
+            />
           </View>
           <View style={styles.wrapper}>
             <View style={styles.inputWrap}>
               <View style={styles.iconWrap}>
-                <Image source={personIcon} style={styles.icon} resizeMode="contain" />
+                <Image
+                  source={images.personIcon}
+                  style={styles.icon}
+                  resizeMode="contain"
+                />
               </View>
               <TextInput
                 placeholder="Username"
@@ -56,7 +64,11 @@ export default class LoginScreen extends Component {
             </View>
             <View style={styles.inputWrap}>
               <View style={styles.iconWrap}>
-                <Image source={lockIcon} style={styles.icon} resizeMode="contain" />
+                <Image
+                  source={images.lockIcon}
+                  style={styles.icon}
+                  resizeMode="contain"
+                />
               </View>
               <TextInput
                 placeholderTextColor="#FFF"
@@ -75,7 +87,10 @@ export default class LoginScreen extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                this.props.actions.requestLogin(this.state.loginText, this.state.passwordText)}
+                this.props.actions.requestLogin(
+                  this.state.loginText,
+                  this.state.passwordText
+                )}
               activeOpacity={0.5}
             >
               <View style={styles.button}>
@@ -102,5 +117,5 @@ export default class LoginScreen extends Component {
 
 LoginScreen.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  actions: PropTypes.arrayOf(PropTypes.func).isRequired,
+  actions: PropTypes.arrayOf(PropTypes.func).isRequired
 };

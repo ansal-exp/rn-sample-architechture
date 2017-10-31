@@ -26,7 +26,6 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SampleArchitectureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SampleArchitectureTests.m */; };
 		DB423BB51FA7A1DB00654215 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		DB423BB61FA7A1FE00654215 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		DB423BB71FA7A1FE00654215 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA51DF850E9000B6D8A /* libyoga.a */; };
 		DB423BB81FA7A21400654215 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		DB423BB91FA7A21D00654215 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -38,6 +37,7 @@
 		DB423BBF1FA7A25A00654215 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		DB423BC01FA7A26000654215 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		DB423BC11FA7A26800654215 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
+		DBF017441FA8EAD400A6C021 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF017441FA8EAD400A6C021 /* libReact.a in Frameworks */,
 				DB423BC11FA7A26800654215 /* libRCTWebSocket.a in Frameworks */,
 				DB423BC01FA7A26000654215 /* libRCTVibration.a in Frameworks */,
 				DB423BBF1FA7A25A00654215 /* libRCTText.a in Frameworks */,
@@ -325,7 +326,6 @@
 				DB423BBA1FA7A22C00654215 /* libRCTGeolocation.a in Frameworks */,
 				DB423BB91FA7A21D00654215 /* libRCTAnimation.a in Frameworks */,
 				DB423BB81FA7A21400654215 /* libRCTActionSheet.a in Frameworks */,
-				DB423BB61FA7A1FE00654215 /* libReact.a in Frameworks */,
 				DB423BB71FA7A1FE00654215 /* libyoga.a in Frameworks */,
 				DB423BB51FA7A1DB00654215 /* libRCTBlob.a in Frameworks */,
 			);
