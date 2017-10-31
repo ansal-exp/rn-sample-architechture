@@ -1,47 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
   Image,
-  Dimensions,
   TextInput,
-  Button,
   TouchableOpacity,
   Modal,
-  TouchableHighlight,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
-import styles from './styles'
-const background = require("../../images/login1_bg.png");
-const mark = require("../../images/login1_mark.png");
-const lockIcon = require("../../images/login1_lock.png");
-const personIcon = require("../../images/login1_person.png");
+import styles from './styles';
+
+const background = require('../../images/login1_bg.png');
+const mark = require('../../images/login1_mark.png');
+const lockIcon = require('../../images/login1_lock.png');
+const personIcon = require('../../images/login1_person.png');
 
 export default class LoginScreen extends Component {
-   
   state = {
-      loginText:'something@somedomain.co',
-      passwordText:'somePassword', 
-  }
-  renderLoadingModal = ()=>{
-    return (
-      <Modal
-          //animationType={"fade"}
-          transparent={true}        
-          visible={this.props.isLoading}
-          onRequestClose={() => {alert("Modal has been closed.")}}
-          >
-          <View style={styles.modalBackground}>
-            <ActivityIndicator
-            animating={this.props.isLoading}
-            size={'small'}
-            />
-         </View>
-        </Modal>
-    )
-  }
+    loginText: 'something@somedomain.co',
+    passwordText: 'somePassword',
+  };
+  renderLoadingModal = () => (
+    <Modal
+      // animationType={"fade"}
+      transparent
+      visible={this.props.isLoading}
+      onRequestClose={() => {}}
+    >
+      <View style={styles.modalBackground}>
+        <ActivityIndicator animating={this.props.isLoading} size="small" />
+      </View>
+    </Modal>
+  );
 
   render() {
     return (
@@ -55,12 +45,12 @@ export default class LoginScreen extends Component {
               <View style={styles.iconWrap}>
                 <Image source={personIcon} style={styles.icon} resizeMode="contain" />
               </View>
-              <TextInput 
-                placeholder="Username" 
+              <TextInput
+                placeholder="Username"
                 placeholderTextColor="#FFF"
-                style={styles.input} 
-                underlineColorAndroid='transparent'
-                onChangeText={(loginText) => this.setState({loginText})}
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                onChangeText={loginText => this.setState({ loginText })}
                 value={this.state.loginText}
               />
             </View>
@@ -68,24 +58,26 @@ export default class LoginScreen extends Component {
               <View style={styles.iconWrap}>
                 <Image source={lockIcon} style={styles.icon} resizeMode="contain" />
               </View>
-              <TextInput 
+              <TextInput
                 placeholderTextColor="#FFF"
-                placeholder="Password" 
-                style={styles.input} 
-                underlineColorAndroid='transparent'
-                secureTextEntry 
-                onChangeText={(passwordText) => this.setState({passwordText})}
+                placeholder="Password"
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                secureTextEntry
+                onChangeText={passwordText => this.setState({ passwordText })}
                 value={this.state.passwordText}
               />
             </View>
-            <TouchableOpacity activeOpacity={.5}>
+            <TouchableOpacity activeOpacity={0.5}>
               <View>
                 <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity 
-            onPress={() =>this.props.actions.requestLogin(this.state.loginText,this.state.passwordText)}
-            activeOpacity={.5}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.actions.requestLogin(this.state.loginText, this.state.passwordText)}
+              activeOpacity={0.5}
+            >
               <View style={styles.button}>
                 <Text style={styles.buttonText}>Sign In</Text>
               </View>
@@ -94,7 +86,7 @@ export default class LoginScreen extends Component {
           <View style={styles.container}>
             <View style={styles.signupWrap}>
               <Text style={styles.accountText}>Don't have an account?</Text>
-              <TouchableOpacity activeOpacity={.5}>
+              <TouchableOpacity activeOpacity={0.5}>
                 <View>
                   <Text style={styles.signupLinkText}>Sign Up</Text>
                 </View>
@@ -108,5 +100,7 @@ export default class LoginScreen extends Component {
   }
 }
 
-
-
+LoginScreen.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.func).isRequired,
+};

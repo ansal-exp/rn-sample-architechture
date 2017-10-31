@@ -1,11 +1,9 @@
-import {
-    StyleSheet,
-    Dimensions
-} from 'react-native'
-const { width, height } = Dimensions.get("window");
+import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   mainContainer: { flex: 5 },
   flexOneContainer: { flex: 1 },
-  portraitContainer: { flex: 2, flexDirection: 'row'}
- })
+  portraitContainer: { flex: 2, flexDirection: 'row' },
+});
+
+export default styles;

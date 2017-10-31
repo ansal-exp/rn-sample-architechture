@@ -1,40 +1,40 @@
-import createReducer from '../lib/createReducer'
-import * as actionTypes from '../actions/ActionTypes'
+import createReducer from '../lib/createReducer';
+import * as actionTypes from '../actions/ActionTypes';
 
-const initialState={
-  isLoggedIn:false,
-  isLoading:false,
-  accessToken:'',
-  username:'',
-  password:'',
-}
+const initialState = {
+  isLoggedIn: false,
+  isLoading: false,
+  accessToken: '',
+  username: '',
+  password: '',
+};
 
-export const loginReducer = createReducer(initialState,{
-  [actionTypes.LOGIN_REQUEST](state,action){
-    var newState = {...state};
+export const loginReducer = createReducer(initialState, {
+  [actionTypes.LOGIN_REQUEST](state, action) {
+    const newState = { ...state };
     newState.username = action.username;
     newState.password = action.password;
     return newState;
   },
-  [actionTypes.LOGIN_LOADING](state,action){
-    var newState = {...state};
+  [actionTypes.LOGIN_LOADING](state) {
+    const newState = { ...state };
     newState.isLoading = true;
     return newState;
   },
-  [actionTypes.LOGIN_LOADING_ENDED](state,action){
-    var newState = {...state};
+  [actionTypes.LOGIN_LOADING_ENDED](state) {
+    const newState = { ...state };
     newState.isLoading = false;
     return newState;
   },
-  [actionTypes.LOGIN_RESPONSE](state,action){
-    var newState = {...state};
+  [actionTypes.LOGIN_RESPONSE](state, action) {
+    const newState = { ...state };
     newState.accessToken = action.response.access_token;
     newState.isLoading = false;
     return newState;
   },
-   [actionTypes.LOGIN_FAILED](state,action){
-    var newState = {...state};    
+  [actionTypes.LOGIN_FAILED](state) {
+    const newState = { ...state };
     newState.isLoading = false;
     return newState;
-  }
+  },
 });
