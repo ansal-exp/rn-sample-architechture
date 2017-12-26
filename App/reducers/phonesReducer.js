@@ -8,16 +8,18 @@ const initialState = {
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_STARTED:{
+    case actionTypes.FETCH_STARTED: {
       const newState = { ...state };
       newState.isLoading = true;
       return newState;
-    },
-  case actionTypes.FETCH_STOPPED: {
+    }
+    case actionTypes.FETCH_STOPPED: {
       const newState = { ...state };
       newState.phones = [...action.response];
       newState.isLoading = false;
       return newState;
-    },
+    }
+    default:
+      return state;
   }
-}
+};
