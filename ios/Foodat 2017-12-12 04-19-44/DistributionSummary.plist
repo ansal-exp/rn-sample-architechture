@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Foodat.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>485E2333AF86BEEB8413B5677D7C4ACF9F27AC85</string>
+				<key>dateExpires</key>
+				<string>25/10/18</string>
+				<key>type</key>
+				<string>iOS Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>6KLQA7GG45.com.experion.foodat</string>
+				<key>aps-environment</key>
+				<string>development</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>6KLQA7GG45</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>Foodat.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>6b1d8ecf-12c5-4ceb-aad3-987cf77f834d</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.experion.foodat</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>6KLQA7GG45</string>
+				<key>name</key>
+				<string>Experion Technologies India Pvt. Limited</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
